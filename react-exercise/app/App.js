@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import {render} from 'react-dom';
 
-class App extends Component {
+//parent component
+class GroceryList extends Component {
   render(){
     return (
-      <h1>Hello World</h1>
+      <ul>
+      	<ListItem quantity="1" name="Bread" />
+      	<ListItem quantity="6" name="Eggs" />
+      	<ListItem quantity="2" name="Milk" />
+      </ul>
     );
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(<GroceryList />, document.getElementById('root'));
