@@ -14,4 +14,15 @@ class GroceryList extends Component {
   }
 }
 
+//child component
+class ListItem extends Component {
+	render(){
+		return(
+				<li>
+					{this.props.quantity}x {this.props.name}
+				</li>
+			);
+	}
+}
+
 render(<GroceryList />, document.getElementById('root'));
