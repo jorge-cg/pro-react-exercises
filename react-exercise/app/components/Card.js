@@ -9,13 +9,19 @@ class Card extends Component {
 		};
 	}
 	render() {
-		return (
-			<div className="card">
-				<div className="card_title">{this.props.title}</div>
+		let cardDetails;
+		if(this.state.showDetails){
+			cardDetails= (
 				<div className="card_details">
 					{this.props.description}
 					<CheckList cardId={this.props.id} tasks={this.props.tasks} />
 				</div>
+				);
+		}
+		return (
+			<div className="card">
+				<div className="card_title">{this.props.title}</div>
+				{cardDetails}
 			</div>
 			);
 	}
