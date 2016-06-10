@@ -8,7 +8,7 @@ class Card extends Component {
 				<div className="card_title">{this.props.title}</div>
 				<div className="card_details">
 					{this.props.description}
-					<CheckList cardId={this.props.id} task={this.props.task} />
+					<CheckList cardId={this.props.id} tasks={this.props.tasks} />
 				</div>
 			</div>
 			);

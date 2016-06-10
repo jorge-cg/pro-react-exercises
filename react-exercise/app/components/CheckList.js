@@ -11,7 +11,7 @@ class CheckList extends Component {
 		));
 		return (
 			<div className="checklist">
-				<ul>{task}</ul>
+				<ul>{tasks}</ul>
 			</div>
 			);
 	}

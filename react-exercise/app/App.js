@@ -38,7 +38,7 @@ let cardsList = [
 class App extends Component {
   render(){
     return (
-      <KanbanBoard cards={cardList} />
+      <KanbanBoard cards={cardsList} />
     );
   }
 }
