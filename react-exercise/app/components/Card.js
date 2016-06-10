@@ -16,17 +16,18 @@ class Card extends Component {
 		if(this.state.showDetails){
 			cardDetails= (
 				<div className="card_details">
-					{this.props.description}
-					<CheckList cardId={this.props.id} tasks={this.props.tasks} />
+				{this.props.description}
+				<CheckList cardId={this.props.id} tasks={this.props.tasks} />
 				</div>
 				);
 		}
 		return (
 			<div className="card">
-				<div className="card_title" onClick={this.toogleDetails.bind(this)}>{this.props.title}</div>
-				{cardDetails}
-			</div>
-			);
+			<div className={this.state.showDetails? "card__title card__title--is-open" : "card__title"
+		} onClick={this.toogleDetails.bind(this)}>{this.props.title}</div>
+		{cardDetails}
+		</div>
+		);
 	}
 }
 
