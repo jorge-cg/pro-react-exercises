@@ -2,6 +2,12 @@ import React, {Component} from 'react';
 import CheckList from './Checklist';
 
 class Card extends Component {
+	constructor(){
+		super(...arguments);
+		this.state = {
+			showDetails: false
+		};
+	}
 	render() {
 		return (
 			<div className="card">
