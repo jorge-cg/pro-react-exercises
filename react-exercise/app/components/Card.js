@@ -20,7 +20,9 @@ class Card extends Component {
 		}
 		return (
 			<div className="card">
-				<div className="card_title">{this.props.title}</div>
+				<div className="card_title" onClick={
+					() => this.setSate({showDetails: !this.state.showDetails})
+				}>{this.props.title}</div>
 				{cardDetails}
 			</div>
 			);
