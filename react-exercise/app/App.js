@@ -1,12 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {render} from 'react-dom';
 
-class App extends Component {
+//Main component. Renders a Search Bar and a ContactList
+class ContactsApp extends Component {
   render(){
     return (
-      <h1>Hello World</h1>
+      <div>
+      	<SeachBar />
+      	<ContactList contacts={this.props.contacts} />
+      </div>
     );
   }
+}
+
+ContactsApp.propTypes= {
+	contacts: PropTypes.arrayOf(Proptypes.object)
 }
 
 render(<App />, document.getElementById('root'));
