@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {render} from 'react-dom';
-import ContactItem from 'ContactItem';
+import ContactItem from './ContactItem';
 
 class ContactList extends Component {
 	render() {

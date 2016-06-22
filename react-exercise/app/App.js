@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {render} from 'react-dom';
-import SearchBar from './components/SearchBar'
+import SearchBar from './components/SearchBar';
+import ContactList from './components/ContactList';
 
 //Main component. Renders a Search Bar and a ContactList
 class ContactsApp extends Component {
@@ -15,7 +16,7 @@ class ContactsApp extends Component {
 }
 
 ContactsApp.propTypes= {
-	contacts: PropTypes.arrayOf(Proptypes.object)
+	contacts: PropTypes.arrayOf(PropTypes.object)
 }
 
 
@@ -28,4 +29,4 @@ let contacts = [
  { name: "Sebastian Markbage", email: "sebmarkbage@here.com" },
 ];
 
-render(<ContactApp  contacts={contacts} />, document.getElementById('root'));
+render(<ContactsApp  contacts={contacts} />, document.getElementById('root'));
