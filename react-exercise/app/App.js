@@ -5,6 +5,12 @@ import ContactList from './components/ContactList';
 
 //Main component. Renders a Search Bar and a ContactList
 class ContactsApp extends Component {
+  constructor(){
+  	super();
+  	this.state= {
+  		filterText: ''
+  	};
+  }
   render(){
     return (
       <div>
