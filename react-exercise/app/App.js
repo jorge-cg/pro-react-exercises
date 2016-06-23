@@ -14,8 +14,8 @@ class ContactsApp extends Component {
   render(){
     return (
       <div>
-      	<SearchBar />
-      	<ContactList contacts={this.props.contacts} />
+      	<SearchBar filterText={this.state.filterText} />
+      	<ContactList contacts={this.props.contacts} filterText={this.state.filterText} />
       </div>
     );
   }
