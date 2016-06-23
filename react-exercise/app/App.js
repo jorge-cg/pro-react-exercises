@@ -11,10 +11,15 @@ class ContactsApp extends Component {
   		filterText: ''
   	};
   }
+
+  handleUserInput(searchTerm){
+    this.setState({filterText:searchTerm});
+  }
+
   render(){
     return (
       <div>
-      	<SearchBar filterText={this.state.filterText} />
+      	<SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)} />
       	<ContactList contacts={this.props.contacts} filterText={this.state.filterText} />
       </div>
     );
