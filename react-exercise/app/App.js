@@ -1,43 +1,37 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {render} from 'react-dom';
-import SearchBar from './components/SearchBar';
-import ContactList from './components/ContactList';
+import 'whatwg-fetch';
+import ContactsApp from './components/ContactsApp';
 
 //Main component. Renders a Search Bar and a ContactList
-class ContactsApp extends Component {
+class App extends Component {
   constructor(){
   	super();
   	this.state= {
-  		filterText: ''
+  		contacts: []
   	};
   }
 
-  handleUserInput(searchTerm){
-    this.setState({filterText:searchTerm});
+  componentDidMount(){
+    fetch('./contacts.json')
+    .then((response) => response.json())
+    .then((responseData) => {
+      this.setState({contacts: responseData});
+    })
+    .catch((error) => {
+      console.log('Error fetching and parsing data', error);
+    });
   }
 
   render(){
     return (
-      <div>
-      	<SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)} />
-      	<ContactList contacts={this.props.contacts} filterText={this.state.filterText} />
-      </div>
+      <ContactsApp contacts={this.state.contacts} />
     );
   }
 }
 
-ContactsApp.propTypes= {
-	contacts: PropTypes.arrayOf(PropTypes.object)
-}
 
 
-let contacts = [
- { name: "Cassio Zen", email: "cassiozen@gmail.com" },
- { name: "Dan Abramov", email: "gaearon@somewhere.com" },
- { name: "Pete Hunt", email: "floydophone@somewhere.com" },
- { name: "Paul O’Shannessy", email: "zpao@somewhere.com" },
- { name: "Ryan Florence", email: "rpflorence@somewhere.com" },
- { name: "Sebastian Markbage", email: "sebmarkbage@here.com" },
-];
 
-render(<ContactsApp  contacts={contacts} />, document.getElementById('root'));
+
+render(<App />, document.getElementById('root'));
